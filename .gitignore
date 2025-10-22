@@ -24,3 +24,6 @@ Thumbs.db
 # Data
 *.csv
 chroma_langchain_db/
+
+OllamaSetup.exe
+*.exe
