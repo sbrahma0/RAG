@@ -1,10 +1,8 @@
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 from vector import retriever
-from groq_setup import get_groq_model
- 
 
-model = get_groq_model()
+model = OllamaLLM(model="llama3.2")
 
 template = """
 You are expert in answering questions about a pizza restaurant
@@ -24,6 +22,5 @@ while True:
         break
     reviews = retriever.invoke(question)
     result = chain.invoke({"reviews": reviews, "question": question})
-    print(result.content if hasattr(result, "content") else result)
-    print("-" * 80)
+    print(result)
 
